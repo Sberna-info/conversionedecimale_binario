@@ -6,7 +6,15 @@ namespace ConversioniDecimali_Binario
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int num = 1024, resto;
+            string binario = "";
+            while (num > 0)
+            {
+                resto = num % 2;
+                num = num / 2;
+                binario = Convert.ToString(resto) + binario;
+            }
+            Console.WriteLine($"il numero in binario è {binario}");
         }
     }
 }
