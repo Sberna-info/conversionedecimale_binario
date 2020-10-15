@@ -6,15 +6,46 @@ namespace ConversioniDecimali_Binario
     {
         static void Main(string[] args)
         {
-            int num = 1024, resto;
+            int num, resto,valorebase;
             string binario = "";
+            Console.Write("Inserisci la base in cui vuoi convertire:");
+            valorebase = int.Parse(Console.ReadLine());
+            Console.Write("Inserisci il numero che vuoi convertire:");
+            num = int.Parse(Console.ReadLine());
             while (num > 0)
             {
-                resto = num % 2;
-                num = num / 2;
-                binario = Convert.ToString(resto) + binario;
+                resto = num % valorebase;
+                if(resto == 15)
+                {
+                    binario += "f";
+                }
+                else if( resto == 14)
+                {
+                    binario += "e";
+                }
+                else if(resto == 13)
+                {
+                    binario += "d";
+                }
+                else if(resto == 12)
+                {
+                    binario += "c";
+                }
+                else if(resto == 11)
+                {
+                    binario += "b";
+                }
+                else if( resto == 10)
+                {
+                    binario += "a";
+                }
+                else
+                {
+                    binario = Convert.ToString(resto) + binario;
+                }
+                num = num / valorebase;
             }
-            Console.WriteLine($"il numero in binario è {binario}");
+            Console.WriteLine($"Il numero convertito in base {valorebase} è:{binario}");
         }
     }
 }
